@@ -1,0 +1,314 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\gamemaneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\gamemaneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\playercollistion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\playercollistion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|d:\\githubdesktop\\unity2d_shottinggame\\survivalaction\\assets\\scrips\\audiomaneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\audiomaneger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\gun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|d:\\githubdesktop\\unity2d_shottinggame\\survivalaction\\assets\\scrips\\gameui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\gameui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\bossenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\minienemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\minienemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\enemybullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\enemybullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\basicenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\basicenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\explosionenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\explosionenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\explosion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\enemyenergy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\enemyenergy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\cursormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\cursormanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\playerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\playerbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\assets\\scrips\\enemy\\healenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED54AE6A-C726-2735-EC72-A6ECD0DAF023}|Assembly-CSharp.csproj|solutionrelative:assets\\scrips\\enemy\\healenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AudioManeger.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\AudioManeger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\AudioManeger.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\AudioManeger.cs",
+              "RelativeToolTip": "Assets\\Scrips\\AudioManeger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T01:09:16.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameUI.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\GameUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\GameUI.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\GameUI.cs",
+              "RelativeToolTip": "Assets\\Scrips\\GameUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T00:53:06.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManeger.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\GameManeger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\GameManeger.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\GameManeger.cs",
+              "RelativeToolTip": "Assets\\Scrips\\GameManeger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T15:37:20.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerCollistion.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\PlayerCollistion.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\PlayerCollistion.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\PlayerCollistion.cs",
+              "RelativeToolTip": "Assets\\Scrips\\PlayerCollistion.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T15:16:50.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MiniEnemy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\MiniEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\MiniEnemy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\MiniEnemy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\MiniEnemy.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T10:44:33.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EnemyBullet.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\EnemyBullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\EnemyBullet.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\EnemyBullet.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\EnemyBullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T10:14:38.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BossEnemy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\BossEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\BossEnemy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\BossEnemy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\BossEnemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T09:52:37.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EnemySpawner.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\EnemySpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\EnemySpawner.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\EnemySpawner.cs",
+              "RelativeToolTip": "Assets\\Scrips\\EnemySpawner.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAgwAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T09:14:48.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Explosion.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Explosion.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Explosion.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Explosion.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Explosion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T08:58:08.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExplosionEnemy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\ExplosionEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\ExplosionEnemy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\ExplosionEnemy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\ExplosionEnemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T08:37:04.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HealEnemy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\HealEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\HealEnemy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\HealEnemy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\HealEnemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T08:21:36.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EnemyEnergy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\EnemyEnergy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\EnemyEnergy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\EnemyEnergy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\EnemyEnergy.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwB4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T07:57:50.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\Enemy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\Enemy.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T01:25:17.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BasicEnemy.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\BasicEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Enemy\\BasicEnemy.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Enemy\\BasicEnemy.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Enemy\\BasicEnemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T01:10:44.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CursorManager.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\CursorManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\CursorManager.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\CursorManager.cs",
+              "RelativeToolTip": "Assets\\Scrips\\CursorManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T00:10:20.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PlayerBullet.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\PlayerBullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\PlayerBullet.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\PlayerBullet.cs",
+              "RelativeToolTip": "Assets\\Scrips\\PlayerBullet.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwCIAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T14:34:48.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gun.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Gun.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Gun.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Gun.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Gun.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAkwD8AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T14:04:54.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scrips\\Player.cs",
+              "ToolTip": "D:\\GitHubDesKtop\\Unity2d_shottinggame\\SurvivalAction\\Assets\\Scrips\\Player.cs",
+              "RelativeToolTip": "Assets\\Scrips\\Player.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA5wCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T13:32:00.645Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
