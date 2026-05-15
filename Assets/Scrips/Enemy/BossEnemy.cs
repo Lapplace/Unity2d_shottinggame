@@ -32,6 +32,7 @@ public class BossEnemy : Enemy
             if (player != null)
             {
                 player.TakeDame(enterDame);
+                ResetContactDamageTimer();
             }
         }
     }
@@ -41,7 +42,10 @@ public class BossEnemy : Enemy
         {
             if (player != null)
             {
-                player.TakeDame(stayDame);
+                if (CanDealContactDamage())
+                {
+                    player.TakeDame(stayDame);
+                }
             }
         }
     }

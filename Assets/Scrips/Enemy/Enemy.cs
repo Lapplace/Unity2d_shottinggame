@@ -9,6 +9,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Image hpBar;
     [SerializeField] protected float enterDame = 10f;
     [SerializeField] protected float stayDame = 1f;
+    [SerializeField] protected float contactDamageInterval = 0.5f;
+    private float nextContactDamageTime;
     //virtual các con ngoài su dung con co the viet them 
     protected virtual void Start()
     {
@@ -48,6 +50,22 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject);
+    }
+
+    protected void ResetContactDamageTimer()
+    {
+        nextContactDamageTime = 0f;
+    }
+
+    protected bool CanDealContactDamage()
+    {
+        if (Time.time < nextContactDamageTime)
+        {
+            return false;
+        }
+
+        nextContactDamageTime = Time.time + Mathf.Max(0.05f, contactDamageInterval);
+        return true;
     }
     protected void UpdateHpBar()
     {
