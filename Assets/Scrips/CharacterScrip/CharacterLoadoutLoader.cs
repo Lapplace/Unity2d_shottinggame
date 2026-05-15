@@ -1,4 +1,4 @@
-using Unity.Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 
 public class CharacterLoadoutLoader : MonoBehaviour
@@ -8,12 +8,12 @@ public class CharacterLoadoutLoader : MonoBehaviour
     [SerializeField] private float hpPerLevel = 20f;
     [SerializeField] private float damagePerLevel = 2f;
     [SerializeField] private CinemachineCamera followCamera;
-
+    
     private void BindCamera(Transform target)
     {
         if (followCamera == null)
         {
-            followCamera = FindFirstObjectByType<CinemachineCamera>();
+            followCamera = FindFirstObjectByType<CinemachineCamera>(); 
         }
 
         if (followCamera == null || target == null)
@@ -23,8 +23,9 @@ public class CharacterLoadoutLoader : MonoBehaviour
 
         followCamera.Follow = target;
         followCamera.LookAt = target;
+        // tìm đối tượng cine trên scene , hàm này sẽ có tác dụng ghim cam follow character.
     }
-
+    // Các hằng số để lưu trữ trong PlayerPrefs
     private const string KeyCharacter = "selected_character";
     private const string KeyDamageLevelPrefix = "upgrade_damage_char_";
     private const string KeyHpLevelPrefix = "upgrade_hp_char_";
@@ -37,12 +38,12 @@ public class CharacterLoadoutLoader : MonoBehaviour
             return;
         }
 
-        int selectedIndex = Mathf.Clamp(PlayerPrefs.GetInt(KeyCharacter, 0), 0, characterPrefabs.Length - 1);
+        int selectedIndex = Mathf.Clamp(PlayerPrefs.GetInt(KeyCharacter, 0), 0, characterPrefabs.Length - 1);   // lấy ra vị trí char đã lưu trong PlayerPrefs, nếu không có thì mặc định là 0 (char đầu tiên)
         Vector3 spawnPosition = spawnPoint != null ? spawnPoint.position : transform.position;
-        Quaternion spawnRotation = spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
-
-        GameObject spawnedCharacter = Instantiate(characterPrefabs[selectedIndex], spawnPosition, spawnRotation);
-        CharacterBase character = spawnedCharacter.GetComponent<CharacterBase>();
+        Quaternion spawnRotation = spawnPoint != null ? spawnPoint.rotation : Quaternion.identity; // rotation
+        // 2 dòng lấy vị trí sinh của char, nếu spawnPoint được gán thì lấy vị trí và góc quay của nó, nếu không thì lấy vị trí và góc quay mặc định của đối tượng đã gắn scrips
+        GameObject spawnedCharacter = Instantiate(characterPrefabs[selectedIndex], spawnPosition, spawnRotation,spawnPoint); // con của spawnPoint để dễ dàng quản lý vị trí sinh của char
+        CharacterBase character = spawnedCharacter.GetComponent<CharacterBase>(); // gắn scrips CharacterBase vào char
         if (character == null)
         {
             Debug.LogError("Selected prefab does not have CharacterBase script.");

@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManeger: {fileID: 0}
+  mainMenuSceneName: MainMenu
 --- !u!1 &204328414952414638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,7 +1420,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7506182050646645655}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
-        m_MethodName: ContineuGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

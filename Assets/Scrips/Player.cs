@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
 
     public void SetMaxHp(float value)
     {
-        maxHp = Mathf.Max(1f, value);
+        maxHp = Mathf.Max(1f, value);// Đảm bảo maxHp luôn lớn hơn 0
         currentHp = maxHp;
         UpdateHpBar();
     }

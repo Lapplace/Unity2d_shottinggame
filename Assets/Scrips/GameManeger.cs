@@ -4,36 +4,62 @@ using Unity.Cinemachine;
 public class GameManeger : MonoBehaviour
 {
     private int currentEnergy;
+    [Header("Gameplay")]
     [SerializeField] private int maxEnergy = 3;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject enemySpaner;
-    private bool bossCalled = false;
     [SerializeField] private Image energyBar;
     [SerializeField] private GameObject gameUI;
-
-    [SerializeField] private GameObject mainMenu;
+    [Header("Menus")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject winGameMenu;
+    //[Header("Optional legacy menu root (Ui_Main)")]
+    //[SerializeField] private GameObject uiMainRoot;
+
+    [Header("Systems")]
     [SerializeField] private AudioManeger audioManeger;
     [SerializeField] private CinemachineCamera cam;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private bool bossCalled;
+
+    private void Start()
     {
         currentEnergy = 0;
+        bossCalled = false;
         UpdateEnergyBar();
-        boss.SetActive(false);
-        //enemySpaner.SetActive(true);
+        if (boss != null)
+        {
+            boss.SetActive(false);
+        }
         StartGame();
-        audioManeger.StopAudioGame(); // Stop all music at the start
-        cam.Lens.OrthographicSize = 5f; // Set default camera size
+        //if (audioManeger != null)
+        //{
+        //    audioManeger.StopAudioGame();
+        //}
+
+        if (cam != null)
+        {
+            cam.Lens.OrthographicSize = 5f;
+        }
     }
+    //private void HideLegacyUiMain()
+    //{
+    //    if (uiMainRoot != null)
+    //    {
+    //        uiMainRoot.SetActive(false);
+    //    }
+    //}
     public void AddEnergy()
     {
         currentEnergy += 1;
         UpdateEnergyBar();
-        if (bossCalled) return;
-        if (currentEnergy == maxEnergy)
+        if (bossCalled)
+        {
+            return;
+        }
+
+        if (currentEnergy >= maxEnergy)
         {
             CallBoss();
         }
@@ -41,68 +67,90 @@ public class GameManeger : MonoBehaviour
     private void CallBoss()
     {
         bossCalled = true;
-        boss.SetActive(true);
-        enemySpaner.SetActive(false);
-        gameUI.SetActive(false);
-        cam.Lens.OrthographicSize = 8f; // Zoom in the camera for boss fight
-        audioManeger.PlayBossMusic(); // Play boss music
+        if (boss != null)
+        {
+            boss.SetActive(true);
+        }
+
+        if (enemySpaner != null)
+        {
+            enemySpaner.SetActive(false);
+        }
+
+        if (gameUI != null)
+        {
+            gameUI.SetActive(false);
+        }
+
+        if (cam != null)
+        {
+            cam.Lens.OrthographicSize = 8f;
+        }
+
+        if (audioManeger != null)
+        {
+            audioManeger.PlayBossMusic();
+        }
     }
     private void UpdateEnergyBar()
     {
         if (energyBar != null)
         {
-            float fillAmount = Mathf.Clamp01((float)currentEnergy / (float)maxEnergy);
+            float fillAmount = Mathf.Clamp01((float)currentEnergy /maxEnergy);
             energyBar.fillAmount = fillAmount;
         }
     }
-    // menu 
-    public void MainMenu()
-    {
-        mainMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        winGameMenu.SetActive(false);
-        Time.timeScale = 0f; // Pause the game
-    }
     public void PauseMenu()
     {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(true);
-        gameOverMenu.SetActive(false);
-        winGameMenu.SetActive(false);
-        Time.timeScale = 0f; // Pause the game
+        //HideLegacyUiMain();
+
+        if (pauseMenu != null) pauseMenu.SetActive(true);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        if (winGameMenu != null) winGameMenu.SetActive(false);
+
+        Time.timeScale = 0f;
     }
     public void GameOverMenu()
     {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(true);
-        winGameMenu.SetActive(false);
-        Time.timeScale = 0f; // Pause the game
+        //HideLegacyUiMain();
+
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(true);
+        if (winGameMenu != null) winGameMenu.SetActive(false);
+
+        Time.timeScale = 0f;
     }
     public void WinGameMenu()
     {
-        winGameMenu.SetActive(true);
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        Time.timeScale = 0f; // Pause the game
+        //HideLegacyUiMain();
+
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        if (winGameMenu != null) winGameMenu.SetActive(true);
+
+        Time.timeScale = 0f;
     }
     public void StartGame()
     {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        winGameMenu.SetActive(false);
-        Time.timeScale = 1f; // Resume the game
-        audioManeger.PlayDefaultMusic(); // Play default music
+        //HideLegacyUiMain();
+
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        if (winGameMenu != null) winGameMenu.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        if (audioManeger != null)
+        {
+            audioManeger.PlayDefaultMusic();
+        }
     }
     public void ResumeGame()
     {
-        mainMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameOverMenu.SetActive(false);
-        winGameMenu.SetActive(false);
-        Time.timeScale = 1f; // Resume the game
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+        if (gameOverMenu != null) gameOverMenu.SetActive(false);
+        if (winGameMenu != null) winGameMenu.SetActive(false);
+
+        Time.timeScale = 1f;
     }
 }

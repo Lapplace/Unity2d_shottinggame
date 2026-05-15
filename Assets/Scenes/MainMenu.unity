@@ -2222,7 +2222,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5458,6 +5458,7 @@ MonoBehaviour:
   stageSceneNames:
   - Level1
   - Level2
+  - SampleScene
   coinText: {fileID: 1470335247}
   damageLevelText: {fileID: 1509781128}
   hpLevelText: {fileID: 160025066}
