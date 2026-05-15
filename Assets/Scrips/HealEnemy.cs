@@ -10,6 +10,7 @@ public class HealEnemy : Enemy
             if (player != null)
             {
                 player.TakeDame(enterDame);
+                ResetContactDamageTimer();
             }
         }
     }
@@ -19,7 +20,10 @@ public class HealEnemy : Enemy
         {
             if (player != null)
             {
-                player.TakeDame(stayDame);
+                if (CanDealContactDamage())
+                {
+                    player.TakeDame(stayDame);
+                }
             }
         }
     }

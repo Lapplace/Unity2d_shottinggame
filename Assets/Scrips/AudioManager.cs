@@ -2,6 +2,41 @@
 
 public class AudioManeger : MonoBehaviour
 {
+    private void SafePlay(AudioSource audioSource)
+    {
+        if (audioSource == null)
+        {
+            return;
+        }
+
+        if (!audioSource.gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
+        if (!audioSource.enabled)
+        {
+            audioSource.enabled = true;
+        }
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
+
+    private void SafeStop(AudioSource audioSource)
+    {
+        if (audioSource == null)
+        {
+            return;
+        }
+
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
     [SerializeField] private AudioSource effectAudioSource; // Nguồn âm nhạc
     [SerializeField] private AudioSource defaultAudioSource;
     [SerializeField] private AudioSource bossAudioSource;
@@ -22,18 +57,18 @@ public class AudioManeger : MonoBehaviour
     }
     public void PlayDefaultMusic()
     {
-        defaultAudioSource.Play(); // Phát nhạc nền mặc định
-        bossAudioSource.Stop(); // Dừng nhạc nền khi gặp boss
+        SafePlay(defaultAudioSource); // Phát nhạc nền mặc định
+        SafeStop(bossAudioSource); // Dừng nhạc nền khi gặp boss
     }
     public void PlayBossMusic()
     {
-        bossAudioSource.Play(); // Phát nhạc nền khi gặp boss
-        defaultAudioSource.Stop(); // Dừng nhạc nền mặc định khi gặp boss
+        SafePlay(bossAudioSource); // Phát nhạc nền khi gặp boss
+        SafeStop(defaultAudioSource); // Dừng nhạc nền mặc định khi gặp boss
     }
     public void StopAudioGame()
     {
-        effectAudioSource.Stop(); // Dừng âm thanh hiệu ứng
-        defaultAudioSource.Stop(); // Dừng nhạc nền mặc định
-        bossAudioSource.Stop(); // Dừng nhạc nền khi gặp boss
+        SafeStop(effectAudioSource); // Dừng âm thanh hiệu ứng
+        SafeStop(defaultAudioSource); // Dừng nhạc nền mặc định
+        SafeStop(bossAudioSource); // Dừng nhạc nền khi gặp boss
     }
 }
