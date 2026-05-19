@@ -10,11 +10,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float enterDame = 10f;
     [SerializeField] protected float stayDame = 1f;
     [SerializeField] protected float contactDamageInterval = 0.5f;
+    [SerializeField] private int expReward = 1;
     private float nextContactDamageTime;
+    private PlayerProgression progression;
     //virtual các con ngoài su dung con co the viet them 
     protected virtual void Start()
     {
         player = FindAnyObjectByType<Player>();
+        progression = FindFirstObjectByType<PlayerProgression>();
         currentHp = maxHp;
         UpdateHpBar(); // Cập nhật thanh máu khi bắt đầu
     }
@@ -49,6 +52,11 @@ public abstract class Enemy : MonoBehaviour
     }
     protected virtual void Die()
     {
+        if (progression != null)
+        {
+            progression.AddExp(expReward);
+        }
+
         Destroy(gameObject);
     }
 
