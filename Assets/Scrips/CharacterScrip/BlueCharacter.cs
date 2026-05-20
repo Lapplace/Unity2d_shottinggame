@@ -7,10 +7,12 @@ public class BlueCharacter : CharacterBase
     [SerializeField] private KeyCode freezeKey = KeyCode.F;
     [SerializeField] private float freezeDuration = 2f;
     [SerializeField] private float freezeCooldown = 8f;
-    [SerializeField][Range(0.01f, 0.2f)] private float frozenTimeScale = 0.05f;
+
+    public static bool IsEnemyTimeFrozen { get; private set; }
+
     private bool isFreezing;
     private float nextFreezeTime;
-    private float previousTimeScale = 1f;
+
     private void Update()
     {
         if (Input.GetKeyDown(freezeKey) && Time.unscaledTime >= nextFreezeTime && !isFreezing)
@@ -24,8 +26,7 @@ public class BlueCharacter : CharacterBase
         isFreezing = true;
         nextFreezeTime = Time.unscaledTime + freezeCooldown;
 
-        previousTimeScale = Time.timeScale;
-        Time.timeScale = frozenTimeScale;
+        IsEnemyTimeFrozen = true;
 
         player.SetUseUnscaledMovement(true);
         player.SetAnimatorUseUnscaledTime(true);
@@ -36,7 +37,8 @@ public class BlueCharacter : CharacterBase
         gun.SetUseUnscaledTime(false);
         player.SetUseUnscaledMovement(false);
         player.SetAnimatorUseUnscaledTime(false);
-        Time.timeScale = previousTimeScale;
+
+        IsEnemyTimeFrozen = false;
         isFreezing = false;
     }
 }
