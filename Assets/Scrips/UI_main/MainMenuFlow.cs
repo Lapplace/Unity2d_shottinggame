@@ -26,8 +26,13 @@ public class MainMenuFlow : MonoBehaviour
     [SerializeField] private TMP_Text hpLevelText;
     [SerializeField] private TMP_Text upgradeCharacterText;
     [SerializeField] private TMP_Text upgradeMessageText;
+    [SerializeField] private TMP_Text damageValueText;
+    [SerializeField] private TMP_Text hpValueText;
     [SerializeField] private int damageUpgradeCost = 50;
     [SerializeField] private int hpUpgradeCost = 50;
+    [SerializeField] private CharacterData[] characterBaseStats;
+    [SerializeField] private float damagePerLevel = 2f;
+    [SerializeField] private float hpPerLevel = 20f;
 
     private int currentCharacterIndex;
     private int upgradeCharacterIndex;
@@ -37,6 +42,9 @@ public class MainMenuFlow : MonoBehaviour
     private const string KeyCoin = "coin";
     private const string KeyDamageLevelPrefix = "upgrade_damage_char_";
     private const string KeyHpLevelPrefix = "upgrade_hp_char_";
+    private const string KeyBaseDamagePrefix = "char_base_damage_";
+    private const string KeyBaseHpPrefix = "char_base_hp_";
+    private const string KeyMoveSpeedPrefix = "char_move_speed_";
 
 
     private int GetUpgradeCharacterIndex()
@@ -47,8 +55,62 @@ public class MainMenuFlow : MonoBehaviour
     private string GetDamageKey(int characterIndex) => KeyDamageLevelPrefix + characterIndex;
     private string GetHpKey(int characterIndex) => KeyHpLevelPrefix + characterIndex;
 
+    private string GetBaseDamageKey(int characterIndex) => KeyBaseDamagePrefix + characterIndex;
+    private string GetBaseHpKey(int characterIndex) => KeyBaseHpPrefix + characterIndex;
+    private string GetMoveSpeedKey(int characterIndex) => KeyMoveSpeedPrefix + characterIndex;
+
+    private void InitializeCharacterStatsPrefs()
+    {
+        if (characterBaseStats == null)
+        {
+            return;
+        }
+
+        int count = Mathf.Min(characterBaseStats.Length, characterPreviewObjects.Length);
+        for (int i = 0; i < count; i++)
+        {
+            CharacterData stat = characterBaseStats[i];
+            if (stat == null)
+            {
+                continue;
+            }
+
+            string hpKey = GetBaseHpKey(i);
+            string damageKey = GetBaseDamageKey(i);
+            string moveSpeedKey = GetMoveSpeedKey(i);
+
+            if (!PlayerPrefs.HasKey(hpKey))
+            {
+                PlayerPrefs.SetFloat(hpKey, stat.baseHp);
+            }
+
+            if (!PlayerPrefs.HasKey(damageKey))
+            {
+                PlayerPrefs.SetFloat(damageKey, stat.baseDamage);
+            }
+
+            if (!PlayerPrefs.HasKey(moveSpeedKey))
+            {
+                PlayerPrefs.SetFloat(moveSpeedKey, stat.moveSpeed);
+            }
+        }
+
+        PlayerPrefs.Save();
+    }
+
+    private float GetBaseDamage(int characterIndex)
+    {
+        return PlayerPrefs.GetFloat(GetBaseDamageKey(characterIndex), 10f);
+    }
+
+    private float GetBaseHp(int characterIndex)
+    {
+        return PlayerPrefs.GetFloat(GetBaseHpKey(characterIndex), 100f);
+    }
+
     private void Start()
     {
+        InitializeCharacterStatsPrefs();
         currentCharacterIndex = Mathf.Clamp(PlayerPrefs.GetInt(KeyCharacter, 0), 0, characterPreviewObjects.Length - 1);
         upgradeCharacterIndex = Mathf.Clamp(PlayerPrefs.GetInt(KeyCharacter, 0), 0, Mathf.Max(0, characterPreviewObjects.Length - 1));
         ShowMainMenu();
@@ -246,14 +308,29 @@ public class MainMenuFlow : MonoBehaviour
             upgradeCharacterText.text = $"Upgrade: {displayName}";
         }
 
+        int damageLevel = PlayerPrefs.GetInt(GetDamageKey(characterIndex), 0);
+        int hpLevel = PlayerPrefs.GetInt(GetHpKey(characterIndex), 0);
+
         if (damageLevelText != null)
         {
-            damageLevelText.text = $"Damage Lv: {PlayerPrefs.GetInt(GetDamageKey(characterIndex), 0)}";
+            damageLevelText.text = $"Damage Lv: {damageLevel}";
         }
 
         if (hpLevelText != null)
         {
-            hpLevelText.text = $"HP Lv: {PlayerPrefs.GetInt(GetHpKey(characterIndex), 0)}";
+            hpLevelText.text = $"HP Lv: {hpLevel}";
+        }
+
+        if (damageValueText != null)
+        {
+            float totalDamage = GetBaseDamage(characterIndex) + (damageLevel * damagePerLevel);
+            damageValueText.text = $"Damage: {totalDamage:0.#}";
+        }
+
+        if (hpValueText != null)
+        {
+            float totalHp = GetBaseHp(characterIndex) + (hpLevel * hpPerLevel);
+            hpValueText.text = $"HP: {totalHp:0.#}";
         }
     }
 }
