@@ -17,6 +17,7 @@ public class SkillDefinition : ScriptableObject
     public string Description => description;
     public Sprite Icon => icon;
     public SkillRuntime SkillPrefab => skillPrefab;
+    public int DescriptionLevelsCount => descriptionsByLevel != null && descriptionsByLevel.Length > 0 ? descriptionsByLevel.Length : 1;
     public string GetDescriptionForLevel(int level)
     {
         if (descriptionsByLevel == null || descriptionsByLevel.Length == 0)

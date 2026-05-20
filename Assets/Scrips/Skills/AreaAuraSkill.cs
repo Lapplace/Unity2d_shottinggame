@@ -24,7 +24,9 @@ public class AreaAuraSkill : SkillRuntime
 
     private int currentLevel = 1;
     private Coroutine auraLoop;
-  //  public override int CurrentLevel => currentLevel;
+
+    public override int CurrentLevel => currentLevel;
+    public override int MaxLevel => statsByLevel != null && statsByLevel.Length > 0 ? statsByLevel.Length : 1;
     private void OnEnable()
     {
         TryResolveOwner();
@@ -46,7 +48,7 @@ public class AreaAuraSkill : SkillRuntime
 
     public override void Upgrade()
     {
-        currentLevel = Mathf.Min(currentLevel + 1, statsByLevel.Length);
+        currentLevel = Mathf.Min(currentLevel + 1, MaxLevel);
     }
 
     private AuraLevelStats CurrentStats()

@@ -22,8 +22,15 @@ public class SkillManager : MonoBehaviour
             return;
         }
 
+        int maxLevel = GetMaxLevel(definition.SkillId, definition);
+
         if (acquiredSkills.TryGetValue(definition.SkillId, out SkillRuntime runtime) && runtime != null)
         {
+            if (runtime.CurrentLevel >= maxLevel)
+            {
+                return;
+            }
+
             runtime.Upgrade();
             return;
         }
@@ -44,5 +51,21 @@ public class SkillManager : MonoBehaviour
         }
 
         return 0;
+    }
+
+    public int GetMaxLevel(string skillId, SkillDefinition definition = null)
+    {
+        int maxByDefinitionText = 1;
+        if (definition != null)
+        {
+            maxByDefinitionText = Mathf.Max(1, definition.DescriptionLevelsCount);
+
+            if (definition.SkillPrefab != null)
+            {
+                return Mathf.Max(maxByDefinitionText, definition.SkillPrefab.MaxLevel);
+            }
+        }
+
+        return maxByDefinitionText;
     }
 }

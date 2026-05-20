@@ -12,6 +12,17 @@ public class SkillOptionView : MonoBehaviour
     private SkillDefinition skill;
     private LevelUpPanel panel;
 
+    private static string FormatSkillNameWithLevel(string baseName, int previewLevel)
+    {
+        int bonusLevel = Mathf.Max(0, previewLevel - 1);
+        if (bonusLevel <= 0)
+        {
+            return baseName;
+        }
+
+        return $"{baseName} +{bonusLevel}";
+    }
+
     public void Setup(SkillDefinition definition, LevelUpPanel levelUpPanel, int previewLevel)
     {
         skill = definition;
@@ -25,7 +36,7 @@ public class SkillOptionView : MonoBehaviour
 
         if (skillName != null)
         {
-            skillName.text = definition.SkillName;
+            skillName.text = FormatSkillNameWithLevel(definition.SkillName, previewLevel);
         }
 
         if (description != null)
