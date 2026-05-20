@@ -18,6 +18,8 @@ public abstract class Enemy : MonoBehaviour
     private Coroutine knockbackSlowCoroutine;
 
     private PlayerProgression progression;
+    private Animator enemyAnimator;
+    private float originalAnimatorSpeed = 1f;
     //virtual các con ngoài su dung con co the viet them 
     protected virtual void Start()
     {
@@ -25,17 +27,35 @@ public abstract class Enemy : MonoBehaviour
         player = FindAnyObjectByType<Player>();
         progression = FindFirstObjectByType<PlayerProgression>();
         currentHp = maxHp;
+        enemyAnimator = GetComponent<Animator>();
+        if (enemyAnimator != null)
+        {
+            originalAnimatorSpeed = enemyAnimator.speed;
+        }
         UpdateHpBar(); // Cập nhật thanh máu khi bắt đầu
     }
     protected virtual void Update()
     {
         if (BlueCharacter.IsEnemyTimeFrozen)
         {
+            SetEnemyAnimationFrozen(true);
             return;
         }
 
+        SetEnemyAnimationFrozen(false);
         MoveToPlayer();
     }
+
+    private void SetEnemyAnimationFrozen(bool isFrozen)
+    {
+        if (enemyAnimator == null)
+        {
+            return;
+        }
+
+        enemyAnimator.speed = isFrozen ? 0f : originalAnimatorSpeed;
+    }
+
     protected void MoveToPlayer()
     {
         if (player != null)
