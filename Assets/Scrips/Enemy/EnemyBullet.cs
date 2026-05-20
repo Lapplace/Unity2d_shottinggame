@@ -9,6 +9,11 @@ public class EnemyBullet : MonoBehaviour
     }
     private void Update()
     {
+        if (BlueCharacter.IsEnemyTimeFrozen)
+        {
+            return;
+        }
+
         if (movementDirection == Vector3.zero) return;
         transform.position += movementDirection * Time.deltaTime;
     }

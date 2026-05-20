@@ -29,6 +29,11 @@ public abstract class Enemy : MonoBehaviour
     }
     protected virtual void Update()
     {
+        if (BlueCharacter.IsEnemyTimeFrozen)
+        {
+            return;
+        }
+
         MoveToPlayer();
     }
     protected void MoveToPlayer()
