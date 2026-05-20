@@ -24,6 +24,12 @@ public class LevelUpPanel : MonoBehaviour
 
     public void OpenPanel()
     {
+        if (!HasAnyUpgradableSkill())
+        {
+            HidePanel();
+            return;
+        }
+
         Time.timeScale = 0f;
 
         if (player != null)
@@ -64,7 +70,8 @@ public class LevelUpPanel : MonoBehaviour
 
     private void RenderOptions()
     {
-        List<SkillDefinition> selected = PickRandomSkills(Mathf.Min(3, allSkills.Length));
+        List<SkillDefinition> upgradableSkills = GetUpgradableSkills();
+        List<SkillDefinition> selected = PickRandomSkills(upgradableSkills, Mathf.Min(3, upgradableSkills.Count));
 
         for (int i = 0; i < optionViews.Length; i++)
         {
@@ -79,9 +86,41 @@ public class LevelUpPanel : MonoBehaviour
         }
     }
 
-    private List<SkillDefinition> PickRandomSkills(int count)
+    public bool HasAnyUpgradableSkill()
     {
-        List<SkillDefinition> pool = new(allSkills);
+        return GetUpgradableSkills().Count > 0;
+    }
+
+    private List<SkillDefinition> GetUpgradableSkills()
+    {
+        List<SkillDefinition> result = new();
+
+        if (allSkills == null || skillManager == null)
+        {
+            return result;
+        }
+
+        foreach (SkillDefinition skill in allSkills)
+        {
+            if (skill == null || string.IsNullOrEmpty(skill.SkillId))
+            {
+                continue;
+            }
+
+            int currentLevel = skillManager.GetCurrentLevel(skill.SkillId);
+            int maxLevel = skillManager.GetMaxLevel(skill.SkillId, skill);
+            if (currentLevel < maxLevel)
+            {
+                result.Add(skill);
+            }
+        }
+
+        return result;
+    }
+
+    private List<SkillDefinition> PickRandomSkills(List<SkillDefinition> sourceSkills, int count)
+    {
+        List<SkillDefinition> pool = new(sourceSkills);
         List<SkillDefinition> result = new();
 
         for (int i = 0; i < count && pool.Count > 0; i++)

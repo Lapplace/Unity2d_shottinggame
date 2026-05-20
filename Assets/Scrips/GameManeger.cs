@@ -2,18 +2,23 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 /// <summary>
 /// using System.Collections.Generic;
 /// </summary>
 public class GameManeger : MonoBehaviour
 {
-    private int currentEnergy;
+    private const string KeyCoin = "coin";
+    private int collectedEnergy;
     [Header("Gameplay")]
-    [SerializeField] private int maxEnergy = 3;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject enemySpaner;
     [SerializeField] private Image energyBar;
     [SerializeField] private GameObject gameUI;
+    [SerializeField] private TMP_Text gameUiEnergyText;
+    [SerializeField] private TMP_Text gameOverEnergyText;
+    [SerializeField] private TMP_Text winGameEnergyText;
+    [SerializeField] private PlayerProgression progression;
     [Header("Menus")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
@@ -27,9 +32,11 @@ public class GameManeger : MonoBehaviour
 
     private void Start()
     {
-        currentEnergy = 0;
+        collectedEnergy = 0;
         bossCalled = false;
+        BindProgression();
         UpdateEnergyBar();
+        UpdateEnergyTexts();
         if (boss != null)
         {
             boss.SetActive(false);
@@ -43,21 +50,97 @@ public class GameManeger : MonoBehaviour
         }
     }
 
-    public void AddEnergy()
+    private void OnEnable()
     {
-        currentEnergy += 1;
-        UpdateEnergyBar();
-        if (bossCalled)
+        BindProgression();
+    }
+
+    private void OnDisable()
+    {
+        if (progression != null)
+        {
+            progression.OnExpChanged -= HandleExpChanged;
+        }
+    }
+
+    private void BindProgression()
+    {
+        if (progression == null)
+        {
+            progression = FindFirstObjectByType<PlayerProgression>();
+        }
+
+        if (progression == null)
         {
             return;
         }
 
-        if (currentEnergy >= maxEnergy)
+        progression.OnExpChanged -= HandleExpChanged;
+        progression.OnExpChanged += HandleExpChanged;
+        HandleExpChanged(progression.CurrentExp, progression.ExpToNextLevel);
+    }
+
+    public void AddEnergy()
+    {
+        collectedEnergy += 1;
+        UpdateEnergyTexts();
+    }
+
+    private void HandleExpChanged(int currentExp, int maxExp)
+    {
+        UpdateEnergyBar();
+
+        if (bossCalled || progression == null)
+        {
+            return;
+        }
+
+        if (progression.IsMaxLevel)
         {
             CallBoss();
         }
     }
-   
+
+    private void SaveCollectedEnergyToCoin()
+    {
+        int currentCoin = PlayerPrefs.GetInt(KeyCoin, 0);
+        PlayerPrefs.SetInt(KeyCoin, currentCoin + collectedEnergy);
+        PlayerPrefs.Save();
+    }
+
+    private void UpdateEnergyTexts()
+    {
+        string value = collectedEnergy.ToString();
+
+        if (gameUiEnergyText != null)
+        {
+            gameUiEnergyText.text = value;
+        }
+
+        if (gameOverEnergyText != null)
+        {
+            gameOverEnergyText.text = value;
+        }
+
+        if (winGameEnergyText != null)
+        {
+            winGameEnergyText.text = value;
+        }
+    }
+
+    private bool rewardGranted;
+
+    private void GrantEnergyRewardOnce()
+    {
+        if (rewardGranted)
+        {
+            return;
+        }
+
+        SaveCollectedEnergyToCoin();
+        rewardGranted = true;
+    }
+
     private void CallBoss()
     {
         bossCalled = true;
@@ -85,7 +168,13 @@ public class GameManeger : MonoBehaviour
     {
         if (energyBar != null)
         {
-            float fillAmount = Mathf.Clamp01((float)currentEnergy /maxEnergy);
+            if (progression == null || progression.IsMaxLevel || progression.ExpToNextLevel <= 0)
+            {
+                energyBar.fillAmount = 1f;
+                return;
+            }
+
+            float fillAmount = Mathf.Clamp01((float)progression.CurrentExp / progression.ExpToNextLevel);
             energyBar.fillAmount = fillAmount;
         }
     }
@@ -107,6 +196,8 @@ public class GameManeger : MonoBehaviour
         if (gameOverMenu != null) gameOverMenu.SetActive(true);
         if (winGameMenu != null) winGameMenu.SetActive(false);
 
+        GrantEnergyRewardOnce();
+        UpdateEnergyTexts();
         Time.timeScale = 0f;
     }
     public void WinGameMenu()
@@ -117,6 +208,8 @@ public class GameManeger : MonoBehaviour
         if (gameOverMenu != null) gameOverMenu.SetActive(false);
         if (winGameMenu != null) winGameMenu.SetActive(true);
 
+        GrantEnergyRewardOnce();
+        UpdateEnergyTexts();
         Time.timeScale = 0f;
     }
     public void StartGame()
@@ -128,6 +221,8 @@ public class GameManeger : MonoBehaviour
         if (winGameMenu != null) winGameMenu.SetActive(false);
 
         Time.timeScale = 1f;
+        rewardGranted = false;
+        UpdateEnergyTexts();
 
         if (audioManeger != null)
         {
