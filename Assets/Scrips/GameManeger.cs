@@ -83,6 +83,7 @@ public class GameManeger : MonoBehaviour
     public void AddEnergy()
     {
         collectedEnergy += 1;
+        SaveCollectedEnergyToCoin(1);
         UpdateEnergyTexts();
     }
 
@@ -101,10 +102,15 @@ public class GameManeger : MonoBehaviour
         }
     }
 
-    private void SaveCollectedEnergyToCoin()
+    private void SaveCollectedEnergyToCoin(int amount)
     {
+        if (amount <= 0)
+        {
+            return;
+        }
+
         int currentCoin = PlayerPrefs.GetInt(KeyCoin, 0);
-        PlayerPrefs.SetInt(KeyCoin, currentCoin + collectedEnergy);
+        PlayerPrefs.SetInt(KeyCoin, currentCoin + amount);
         PlayerPrefs.Save();
     }
 
@@ -128,18 +134,6 @@ public class GameManeger : MonoBehaviour
         }
     }
 
-    private bool rewardGranted;
-
-    private void GrantEnergyRewardOnce()
-    {
-        if (rewardGranted)
-        {
-            return;
-        }
-
-        SaveCollectedEnergyToCoin();
-        rewardGranted = true;
-    }
 
     private void CallBoss()
     {
@@ -196,7 +190,6 @@ public class GameManeger : MonoBehaviour
         if (gameOverMenu != null) gameOverMenu.SetActive(true);
         if (winGameMenu != null) winGameMenu.SetActive(false);
 
-        GrantEnergyRewardOnce();
         UpdateEnergyTexts();
         Time.timeScale = 0f;
     }
@@ -208,7 +201,6 @@ public class GameManeger : MonoBehaviour
         if (gameOverMenu != null) gameOverMenu.SetActive(false);
         if (winGameMenu != null) winGameMenu.SetActive(true);
 
-        GrantEnergyRewardOnce();
         UpdateEnergyTexts();
         Time.timeScale = 0f;
     }
@@ -221,7 +213,6 @@ public class GameManeger : MonoBehaviour
         if (winGameMenu != null) winGameMenu.SetActive(false);
 
         Time.timeScale = 1f;
-        rewardGranted = false;
         UpdateEnergyTexts();
 
         if (audioManeger != null)

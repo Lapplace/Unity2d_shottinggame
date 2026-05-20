@@ -14,10 +14,15 @@ public abstract class CharacterBase : MonoBehaviour
 
     public void ApplyLoadout(int hpLevel, int damageLevel, float hpPerLevel, float damagePerLevel)
     {
-        float finalHp = baseData.baseHp + (hpLevel * hpPerLevel);
-        float finalDamage = baseData.baseDamage + (damageLevel * damagePerLevel);
+        ApplyLoadoutWithBase(baseData.baseHp, baseData.baseDamage, baseData.moveSpeed, hpLevel, damageLevel, hpPerLevel, damagePerLevel);
+    }
 
-        player.SetMoveSpeed(baseData.moveSpeed);
+    public void ApplyLoadoutWithBase(float baseHp, float baseDamage, float moveSpeed, int hpLevel, int damageLevel, float hpPerLevel, float damagePerLevel)
+    {
+        float finalHp = baseHp + (hpLevel * hpPerLevel);
+        float finalDamage = baseDamage + (damageLevel * damagePerLevel);
+
+        player.SetMoveSpeed(moveSpeed);
         player.SetMaxHp(finalHp);
         gun.SetBaseBulletDamage(finalDamage);
     }

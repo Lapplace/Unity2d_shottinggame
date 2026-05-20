@@ -29,6 +29,9 @@ public class CharacterLoadoutLoader : MonoBehaviour
     private const string KeyCharacter = "selected_character";
     private const string KeyDamageLevelPrefix = "upgrade_damage_char_";
     private const string KeyHpLevelPrefix = "upgrade_hp_char_";
+    private const string KeyBaseDamagePrefix = "char_base_damage_";
+    private const string KeyBaseHpPrefix = "char_base_hp_";
+    private const string KeyMoveSpeedPrefix = "char_move_speed_";
 
     private void Start()
     {
@@ -54,6 +57,11 @@ public class CharacterLoadoutLoader : MonoBehaviour
 
         int hpLevel = PlayerPrefs.GetInt(KeyHpLevelPrefix + selectedIndex, 0);
         int damageLevel = PlayerPrefs.GetInt(KeyDamageLevelPrefix + selectedIndex, 0);
-        character.ApplyLoadout(hpLevel, damageLevel, hpPerLevel, damagePerLevel);
+
+        float baseHp = PlayerPrefs.GetFloat(KeyBaseHpPrefix + selectedIndex, 100f);
+        float baseDamage = PlayerPrefs.GetFloat(KeyBaseDamagePrefix + selectedIndex, 10f);
+        float moveSpeed = PlayerPrefs.GetFloat(KeyMoveSpeedPrefix + selectedIndex, 5f);
+
+        character.ApplyLoadoutWithBase(baseHp, baseDamage, moveSpeed, hpLevel, damageLevel, hpPerLevel, damagePerLevel);
     }
 }
