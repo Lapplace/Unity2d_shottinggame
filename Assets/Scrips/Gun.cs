@@ -14,7 +14,10 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioManeger audioManeger;
 
     [SerializeField] private float baseBulletDamage = 10f;
+    [SerializeField] private float spreadAngleStep = 12f;
     private float currentBulletDamage = 10f;
+    private int spreadBulletCount = 1;
+    private bool spreadBulletPierces;
     private bool useUnscaledTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,13 +62,7 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && currentAmmo > 0 && currentTime > nextShot)
         {
             nextShot = currentTime + shotDelay;
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
-            if (playerBullet != null)
-            {
-                playerBullet.SetDamage(currentBulletDamage);
-                playerBullet.SetUseUnscaledMovement(useUnscaledTime);
-            }
+            FireSpreadShot();
             currentAmmo--;
             UpdateAmmoText();
             if (audioManeger != null)
@@ -91,6 +88,43 @@ public class Gun : MonoBehaviour
     //    useUnscaledTime = value;
     //    nextShot = useUnscaledTime ? Time.unscaledTime : Time.time;
     //}
+
+    private void FireSpreadShot()
+    {
+        int bulletCount = Mathf.Max(1, spreadBulletCount);
+        for (int i = 0; i < bulletCount; i++)
+        {
+            Quaternion bulletRotation = firePoint.rotation * Quaternion.Euler(0f, 0f, GetSpreadAngleOffset(i));
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
+            PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
+            if (playerBullet != null)
+            {
+                playerBullet.SetDamage(currentBulletDamage);
+                playerBullet.SetUseUnscaledMovement(useUnscaledTime);
+                playerBullet.SetPiercing(spreadBulletPierces);
+            }
+        }
+    }
+
+    private float GetSpreadAngleOffset(int bulletIndex)
+    {
+        if (bulletIndex <= 0)
+        {
+            return 0f;
+        }
+
+        int pairIndex = (bulletIndex + 1) / 2;
+        int side = bulletIndex % 2 == 1 ? 1 : -1;
+        return side * pairIndex * spreadAngleStep;
+    }
+
+    public void SetSpreadShotStats(int bulletCount, float damage, bool pierces, float angleStep)
+    {
+        spreadBulletCount = Mathf.Max(1, bulletCount);
+        currentBulletDamage = Mathf.Max(1f, damage);
+        spreadBulletPierces = pierces;
+        spreadAngleStep = Mathf.Max(0f, angleStep);
+    }
 
     public void SetBaseBulletDamage(float value)
     {

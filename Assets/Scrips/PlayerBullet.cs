@@ -6,6 +6,7 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] private float timeToDestroy = 0.5f;
     [SerializeField] private float damage = 10f;
     [SerializeField] private GameObject BloodPrefab;
+    private bool piercesTargets;
     private bool useUnscaledMovement;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,18 +32,30 @@ public class PlayerBullet : MonoBehaviour
     {
         useUnscaledMovement = value;
     }
+
+    public void SetPiercing(bool value)
+    {
+        piercesTargets = value;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
+            Enemy enemy = collision.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDame(damage);
-                GameObject blood = Instantiate(BloodPrefab, collision.transform.position, Quaternion.identity);
-                Destroy(blood, 1f);
+                if (BloodPrefab != null)
+                {
+                    GameObject blood = Instantiate(BloodPrefab, collision.transform.position, Quaternion.identity);
+                    Destroy(blood, 1f);
+                }
             }
-            Destroy(gameObject);
+
+            if (!piercesTargets)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

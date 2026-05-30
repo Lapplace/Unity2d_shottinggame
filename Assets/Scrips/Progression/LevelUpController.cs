@@ -36,15 +36,11 @@ public class LevelUpController : MonoBehaviour
 
     private void OnLevelUp(int newLevel)
     {
-        if (progression != null && progression.IsMaxLevel)
+        if (levelUpPanel == null || !levelUpPanel.HasAnyUpgradableSkill())
         {
             return;
         }
 
-        if (levelUpPanel != null && !levelUpPanel.HasAnyUpgradableSkill())
-        {
-            return;
-        }
         levelUpPanel.OpenPanel();
     }
 }
