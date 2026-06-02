@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8132162896776829771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452534428778761197}
+  - component: {fileID: 8823841622697012722}
+  m_Layer: 0
+  m_Name: Skill_LightningStrike_Runtime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &452534428778761197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132162896776829771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8823841622697012722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132162896776829771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a311b1d8e3d030e43885d74599b51fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillId: Linghtning
+  owner: {fileID: 0}
+  lightningPrefab: {fileID: 1414697311067161939, guid: 0921785d949f06f41869d697cf1f7fe9, type: 3}
+  statsByLevel:
+  - strikeCount: 3
+    damage: 20
+    cooldown: 5
+    areaRadius: 0
+  - strikeCount: 4
+    damage: 25
+    cooldown: 5
+    areaRadius: 0
+  - strikeCount: 5
+    damage: 30
+    cooldown: 5
+    areaRadius: 0
+  - strikeCount: 5
+    damage: 30
+    cooldown: 3
+    areaRadius: 0
+  - strikeCount: 5
+    damage: 30
+    cooldown: 3
+    areaRadius: 1
+  targetRange: 6
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  enemyTag: Enemy
+  delayBetweenStrikes: 0.5

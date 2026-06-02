@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20e49af78e3e8c44b94a6f3d582d472, type: 3}
+  m_Name: SO_Skill_LightningStrike
+  m_EditorClassIdentifier: 
+  skillId: lightning_01
+  skillName: "G\u1ECDi s\u1EA5m"
+  description: 
+  descriptionsByLevel:
+  - "Ch\u1ECDn Enemy trong ph\u1EA1m vi v\xE0 g\u1ECDi tia s\xE9t \u0111\xE1nh xu\u1ED1ng
+    l\u1EA7n l\u01B0\u1EE3t."
+  - "+ 1 tia s\xE9t , + damage ,"
+  - "+ 1 tia s\xE9t , + damage ,"
+  - "gi\u1EA3m th\u1EDDi gian h\u1ED3i"
+  - "tia s\xE9t \u0111\xE1nh xu\u1ED1ng g\xE2y s\xE1t th\u01B0\u01A1ng lan"
+  icon: {fileID: 21300000, guid: 6bc2c5bdb2e657048b7e25f5844b7b40, type: 3}
+  skillPrefab: {fileID: 8823841622697012722, guid: c02afef49c732934e8a28a9d7f56b60f, type: 3}
